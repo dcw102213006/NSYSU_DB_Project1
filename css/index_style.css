@@ -1,0 +1,121 @@
+.type {
+	background-color: #CEDCE0;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: px;
+	width: 767px;
+}
+.B1 {
+	width: 100px;
+	color: #FBFBFB;
+	font-weight: bolder;
+	background-color: #3A385B;
+
+}
+.like {
+	background-image: url(../heart.png);
+	width: 26px;
+	height: 24px;
+}
+.rs {
+	height: 300px;
+}
+.cs {
+	height: 300px;
+	background-color: #FFFFFF;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 230px;
+}
+.B2 {
+	width: 100px;
+	color: #F8F8F8;
+	font-weight: bolder;
+	background-color: #3A385B;
+}
+.B3 {
+	width: 100px;
+	background-color: #3A385B;
+	color: #FCFCFC;
+	font-weight: bolder;
+}
+.B4 {
+	width: 100px;
+	background-color: #3A385B;
+	color: #F9F9F9;
+	font-weight: bolder;
+}
+.B5 {
+	width: 100px;
+	background-color: #3A385B;
+	color: #FFFFFF;
+	font-weight: bolder;
+}
+.B6 {
+	width: 100px;
+	background-color: #3A385B;
+	color: #F9F9F9;
+	font-weight: bolder;
+}
+.body {
+	background-color: #CEDCE0;
+}
+.color {
+}
+.btype {
+	margin-top: 20px;
+}
+.file {
+	min-width: 0px;
+	width: 100px;
+}
+.side1 {
+	width: 767px;
+}
+div.gallery { /*圖片的外框大小*/
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc { /* Add desc...區塊的大小*/
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 30%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}

@@ -75,6 +75,7 @@ div.desc { /* Add desc...區塊的大小*/
 	  header('Location:login.php');
   }
   else{
+       $uid=$_SESSION['uid'];
 	   echo $_SESSION['uname'].'您好!'.'<a href="logout.php">登出</a>' ;
   }
 ?>

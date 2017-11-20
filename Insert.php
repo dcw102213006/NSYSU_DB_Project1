@@ -7,7 +7,6 @@
   }
     else{
 	  
-	  
 	   $uid="'".$_SESSION['uid']."'";
 	   $obj_dec="'".$_POST['obj_dec']."'";
 	   $obj_name="'".$_POST['obj_name']."'";

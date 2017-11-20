@@ -76,9 +76,9 @@ $(document).ready(function (e){
         success: function(data){
 			data=JSON.parse(data);
             alert(data.upload_status);//輸出上傳情形
-			img_title=data.img_title;
+			img_title=data.img_title;//取得上傳到站上的圖片的檔案名稱
 			
-            if(data.uploadOk)Po();//插入文章到資料庫
+            if(data.uploadOk)Po();//call 發文系統 //插入文章到資料庫
 		},
         error: function(){} 	        
         
@@ -86,7 +86,7 @@ $(document).ready(function (e){
     }));
 	
 	function Po(){
-	//call 發文系統
+	//ajax Post戳Insert.php
 	$.ajax({
         url: "Insert.php",
         type: "POST",

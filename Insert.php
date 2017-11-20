@@ -7,21 +7,13 @@
     }
     else{
 	  
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	  
         $uid="'".$_SESSION['uid']."'";
         $obj_dec="'".$_POST['obj_dec']."'";
         $obj_name="'".$_POST['obj_name']."'";
         $img_title="'".$_POST['img_title']."'";
-=======
-=======
->>>>>>> 856b0d153891b1eb9433beee132b5eca6e7363db
-	   $uid="'".$_SESSION['uid']."'";
-	   $obj_dec="'".$_POST['obj_dec']."'";
-	   $obj_name="'".$_POST['obj_name']."'";
-       $img_title="'".$_POST['img_title']."'";
->>>>>>> 856b0d153891b1eb9433beee132b5eca6e7363db
+
 	   
 	  
         //sql:select 物品id

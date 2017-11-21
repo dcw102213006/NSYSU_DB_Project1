@@ -13,7 +13,7 @@
         $obj_dec="'".$_POST['obj_dec']."'";
         $obj_name="'".$_POST['obj_name']."'";
         $img_title="'".$_POST['img_title']."'";
-
+        $time=strtotime("now");//發文的時間戳計
 	   
 	  
         //sql:select 物品id
@@ -42,7 +42,7 @@
     
 	  
         //sql:insert into Object
-        $sql="INSERT into Object (oid,oname,odescription,cid,mid,opicture) values ($oid,$obj_name,$obj_dec,1,$uid,$img_title)";
+        $sql="INSERT into Object (oid,oname,odescription,cid,mid,opicture,otimestamp) values ($oid,$obj_name,$obj_dec,1,$uid,$img_title,$time)";
         $stid = oci_parse($db_link, $sql);
         echo $sql;
         oci_execute($stid); // The row is committed and immediately visible to other users 

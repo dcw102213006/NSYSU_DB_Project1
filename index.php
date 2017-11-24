@@ -6,18 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="css/index_style.css" rel="stylesheet" type="text/css">
+  <link href="css/img_modal.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="//f2e.cloudcdn.biz/cdn_lib/react@15.6.1/react.min.js"></script>
   <script src="//f2e.cloudcdn.biz/cdn_lib/react@15.6.1/react-dom.min.js"></script>
+  <script src="Select_Object_Content.js"></script>
 
 
 
 
 <style>
-div.gallery { /*圖片的外框大小*/
-    border: 5px solid #FFF;
+div.gallery {
+    margin: 20px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 200px;
+    height:276px;
 }
 
 div.gallery:hover {
@@ -25,8 +31,9 @@ div.gallery:hover {
 }
 
 div.gallery img {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
+    margin-top:5px;
 }
 
 div.desc { /* Add desc...區塊的大小*/
@@ -34,7 +41,9 @@ div.desc { /* Add desc...區塊的大小*/
     text-align: center;
 	background-color: #FCFCFC
 }
-
+#wall{
+    width:80%;
+}
 * {
     box-sizing: border-box;
 }
@@ -55,6 +64,10 @@ div.desc { /* Add desc...區塊的大小*/
 @media only screen and (max-width: 500px){
     .responsive {
         width: 100%;
+    }
+    .modal-content{
+        clear:left;
+        margin-right:100px;
     }
 }
 
@@ -108,7 +121,7 @@ div.desc { /* Add desc...區塊的大小*/
       <div class="btn-group" role="group">
         <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle		="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
-          <li><a href="#">女生</a></li>
+          <li><a href="index.php?clo">女生</a></li>
           <li><a href="#">男生</a></li>
         </ul>
       </div>
@@ -128,59 +141,46 @@ div.desc { /* Add desc...區塊的大小*/
   
   
 <div id="wall" align="center">
-  <div class="responsive">
-  	  <div class="gallery">
-    <a target="_blank" href="img_fjords.jpg">
-      <img src="img_fjords.jpg" alt="Trolltunga Norway" width="256" height="256">
-    </a>
-    <div class="desc">Add a description of the image here <br>
-    <button type="button" class="btn btn-sm btn-default like">
- <!-- 統計回傳讚數  <? php
-	?>-->
+      
+</div>
+  
+      
+</div>
+  
+  
+
+      
+    </div>
+  
+  </div>
+</div>
+
+
+<div id="myModal" class="modal"  >
+  <span class="close">&times;</span>
+  <div class="modal-content" id="text_area" style="">
+    <img class="modal-content" id="img01" style="float:left"  >
     
-    </div>
- 		</div>
-</div>
-
-<div class="responsive">
-		<div class="gallery"> 
-    <a target="_blank" href="img_fjords.jpg">
-      <img src="img_fjords.jpg" alt="Trolltunga Norway" width="256" height="256">
-    </a>
-    <div class="desc">Add a description of the image here <br>
-    <button type="button" class="btn btn-sm btn-default like"></button>
-    </div>
-		</div> 
-</div>
-
-<div class="responsive">
-		  <div class="gallery">
-    <a target="_blank" href="img_fjords.jpg">
-      <img src="img_fjords.jpg" alt="Trolltunga Norway" width="256" height="256">
-    </a>
-    <div class="desc">Add a description of the image here <br>     
-    <button type="button" class="btn btn-sm btn-default like"></button>
-    </div>
- 		</div>
-</div>
-  
-      
   </div>
   
   
-<?php 
-for ($x = 0; $x <= 12; $x++) {
-    echo "<div class='gallery'></div>";
-} 
-?>
-      
-    </div>
+ 
   
-  </div>
 </div>
+
 
 <div class="container-fluid post" align="center">
   <button type="button" class="btn w3-circle w3-white w3-xlarge">+</button>
 </div>
 </body>
+
+
+<script>
+
+   
+</script>
+
+
+
+
 </html>

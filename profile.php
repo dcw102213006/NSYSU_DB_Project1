@@ -66,8 +66,24 @@
       </header>
       <div class="w3-container">
 	        <div id="modal_fo">
-	        物品名稱:<input type="text" size="10" id="obj_name">
-            <textarea rows="30" cols="90" placeholder="對這個物品寫點敘述吧" id="obj_dec" name="obj_dec"></textarea>
+	        物品名稱:<input type="text" size="10" id="obj_name"><br>
+          物品種類:<form action="insert.php" method='post'><select name="obj_category" id="obj_category">
+                      <option selected value="DEFAULT">幫這個物品分類一下吧</option>
+                      <option value="1">服飾/女生</option>
+                      <option value="2">服飾/男生</option>
+                      <option value="3">鞋類/女生</option>
+                      <option value="4">鞋類/男生</option>
+                      <option value="5">生活用品</option>
+                      <option value="6">3C</option>
+                      <option value="7">書本</option>
+                      <option value="8">文具</option>
+                   </select>
+                   </form>
+                  
+                
+                   <div></div>
+          
+          <textarea rows="30" cols="90" placeholder="對這個物品寫點敘述吧" id="obj_dec" name="obj_dec"></textarea>
                 
             
 		    <button onclick="declare()" style="float:right" type="button" class="btn btn-info">發布</button>

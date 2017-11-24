@@ -90,7 +90,7 @@ $(document).ready(function (e){
 	$.ajax({
         url: "Insert.php",
         type: "POST",
-        data:{"obj_dec":$("#obj_dec").val() ,"obj_name":$("#obj_name").val() ,"img_title":img_title},
+        data:{"obj_dec":$("#obj_dec").val() ,"obj_name":$("#obj_name").val() ,"img_title":img_title,"obj_category":$("#obj_category").val()},
         
         success: function(data){
 			alert(data);

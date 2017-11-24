@@ -19,20 +19,20 @@
 
 <style>
 div.gallery {
-    margin: 20px;
+    margin: 2%;
     border: 1px solid #ccc;
     float: left;
-    width: 200px;
-    height:276px;
+    width: 250px;
+    height:250px;
 }
 
 div.gallery:hover {
-    border: 3px solid #FFF;
+    border: 10px solid #FFF;
 }
 
 div.gallery img {
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
     margin-top:5px;
 }
 
@@ -106,7 +106,7 @@ div.desc { /* Add desc...區塊的大小*/
 		<div class="w3-dropdown-hover">
         <img class="w3-btn w3-circle w3-image w3-jumbo" src="img_fjords.jpg" >
         <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="profile.php?id=<?php echo $uid?>" class="w3-bar-item w3-button">個人檔案</a>
+        <a href="#" class="w3-bar-item w3-button">個人檔案</a>
         <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
         </div>
     </div>
@@ -170,7 +170,7 @@ div.desc { /* Add desc...區塊的大小*/
 
 
 <div class="container-fluid post" align="center">
-  <button type="button" class="btn w3-circle w3-white w3-xlarge">+</button>
+  <a href="post.php?id=<?php echo $uid?>"><button class="button" >POST</button></a>
 </div>
 </body>
 

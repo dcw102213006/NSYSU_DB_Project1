@@ -41,7 +41,7 @@
     height: 150px;
 }
 
-/* Add Animation */
+/* Add Animation 
 .modal-content, #caption {    
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
@@ -58,7 +58,7 @@
     from {transform:scale(0)} 
     to {transform:scale(1)}
 }
-
+*/
 /* The Close Button */
 .close {
     position: absolute;

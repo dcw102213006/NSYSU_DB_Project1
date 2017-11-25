@@ -79,6 +79,13 @@ div.desc { /* Add desc...區塊的大小*/
 </style>
 </head>
 <body class="body">
+
+<div class="w3-container w3-blue-gray topbar">
+	<form action="">
+    <img src="title.png" alt="" width="198" height="84" class="tp" />
+  	<input id="search-box" type="text" name="search-box"/>
+    </form>
+    
 <aside class="loginside" align="right">
 <?php
 
@@ -94,29 +101,10 @@ div.desc { /* Add desc...區塊的大小*/
   }
 ?>
 </aside>
-
-<div class="container" align="center">
-  <aside class="side1">
-  	<form action="">
-    <img src="title.png" width="208" height="83" alt="" align="center"/>
-  	<input id="search-box" type="text" name="search-box"/>
-    </form>
-    
-    <div class="w3-container" align="right">
-		<div class="w3-dropdown-hover">
-        <img class="w3-btn w3-circle w3-image w3-jumbo" src="img_fjords.jpg" >
-        <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="#" class="w3-bar-item w3-button">個人檔案</a>
-        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
-        </div>
-    </div>
 </div>
 
-  </aside>
-  
-  
-  <div class="container type" align="center">
-  
+<div class="container group" align="center">
+       
     <div class="btn-group btype" role="group">
       <div class="btn-group" role="group">
         <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle		="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
@@ -137,8 +125,17 @@ div.desc { /* Add desc...區塊的大小*/
       <button type="button" class="btn btn-default B5">書本</button>
       <button type="button" class="btn btn-default B6">文具</button>
     </div>
+    
+        <div class="w3-container profile" align="right">
+		<div class="w3-dropdown-hover">
+        <img class="w3-circle w3-image w3-jumbo" src="img_fjords.jpg" >
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+        <a href="#" class="w3-bar-item w3-button">個人檔案</a>
+        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
+        </div>
+    </div>
   </div>
-  
+ 
   
 <div id="wall" align="center">
       
@@ -168,8 +165,7 @@ div.desc { /* Add desc...區塊的大小*/
   
 </div>
 
-
-<div class="container-fluid post" align="center">
+<div class="fixed w3-container post" align="center">
   <a href="post.php?id=<?php echo $uid?>"><button class="button" >POST</button></a>
 </div>
 </body>

@@ -15,7 +15,7 @@ $(function(){
             for(var i=0;i<data.oid.length;i++){
                 var content=`<div class="gallery">
                               
-                                <img src=`+data.opic[i]+` width: 1000px; height: 741px; >
+                                <img src=`+data.opic[i]+`  id=`+data.oid[i]+` ;  width: 1000px; height: 741px; >
                              
                               <div class="desc"><span class="glyphicon glyphicon-heart-empty" style="font-size:40px"></span></div>
                             </div>`;
@@ -23,6 +23,8 @@ $(function(){
                
                
                $('#wall').append(content);//將文章輸出至index.php
+               //$('#img_info').append(`<div id="delete_btn" style="float:right;margin:10px" >...</div>`);
+               
             }   
             
             //使用者點擊圖片,彈出modal
@@ -40,8 +42,15 @@ $(function(){
                 
                 modal.style.display = "block";
                 $('#img01').attr("src",this.src);
+                var delete_id=this.id;
                 
-                captionText.innerHTML = this.alt;
+                delete_obj(delete_id);
+                
+                
+                
+                
+                
+                //captionText.innerHTML = this.alt;
             });
 
 

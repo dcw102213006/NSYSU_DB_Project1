@@ -5,9 +5,9 @@ if(!isset($_SESSION['uname'])){//若使用者尚未登入
 	  echo "錯誤!尚未登入";
 }
 else{
-	$src=$_GET['src'];
-	$picsrc="'".trim($src)."'";
-	$sql="Delete From OBJECT WHERE OPICTURE=$picsrc";                  //刪除所選之照片
+	$oid=$_GET['oid'];
+	$uid="'".$_SESSION['uid']."'";
+	$sql="Delete From OBJECT WHERE OID=$oid and mid=$uid ";                  //刪除所選之照片
 	$stmt = oci_parse($db_link, $sql);
      if(!$stmt) {
         echo "<h1>ERROR – Could not parse SQL statement.</h1>";

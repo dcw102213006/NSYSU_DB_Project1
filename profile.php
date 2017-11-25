@@ -13,13 +13,14 @@
   <script src="//f2e.cloudcdn.biz/cdn_lib/react@15.6.1/react.min.js"></script>
   <script src="//f2e.cloudcdn.biz/cdn_lib/react@15.6.1/react-dom.min.js"></script>
   <script src="Select_Object_Content.js"></script>
+  <script src="delete.js"></script>
 
 
 
 
 <style>
 div.gallery {
-    margin: 2%;
+    margin: 40px;
     border: 1px solid #ccc;
     float: left;
     width: 250px;
@@ -42,7 +43,7 @@ div.desc { /* Add desc...區塊的大小*/
 	background-color: #FCFCFC
 }
 #wall{
-    width:80%;
+    width:60%;
 }
 * {
     box-sizing: border-box;
@@ -102,7 +103,8 @@ div.desc { /* Add desc...區塊的大小*/
 ?>
 </aside>
 </div>
-
+<div class="container" align="center">
+ <div class="container type" align="center">
 <div class="container selfdesc">
 <img src="head.png" alt="headsticker" id="head"/> <br>
 	<div class="container desc-text" align="center">
@@ -113,7 +115,7 @@ div.desc { /* Add desc...區塊的大小*/
     </div> 
 </div>
  
-  
+  </div>
 <div id="wall" align="center">
       
 </div>
@@ -121,7 +123,7 @@ div.desc { /* Add desc...區塊的大小*/
       
 </div>
   
-  
+ </div>
 
       
     </div>
@@ -135,7 +137,7 @@ div.desc { /* Add desc...區塊的大小*/
   <span class="close">&times;</span>
   <div class="modal-content" id="text_area" style="">
     <img class="modal-content" id="img01" style="float:left"  >
-    
+    <div id="img_info" style="background-color:white;width:1000px;height:558px"><div id="delete_btn" style="float:right;margin:10px" >...</div></div>
   </div>
   
   

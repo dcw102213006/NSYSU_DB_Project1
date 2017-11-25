@@ -39,6 +39,7 @@
 <label>上傳物品照片:</label><br/>
 <input name="fileToUpload" type="file" class="inputFile"  id="fileToUpload"  accept="image/*" style="position:relative
 align-content:center"/>
+
 </form>
 
 
@@ -93,8 +94,8 @@ align-content:center"/>
           
           <textarea rows="30" cols="90" placeholder="對這個物品寫點敘述吧" id="obj_dec" name="obj_dec"></textarea>
                 
-            
-		    <button onclick="declare()" style="float:right" type="button" class="btn btn-info">發佈</button>
+           
+		    <button onclick="declare()" style="float:right" type="button" class="btn btn-info"  id="img_submit">發佈</button>
 			</div>
       </div>
 	  <div id="mes" style="display:none">
@@ -118,7 +119,7 @@ align-content:center"/>
 function declare(){
 	 
 	 
-	$("#img_submit").submit();//上傳圖片
+	$("#uploadForm").submit();//上傳圖片
 	 
 	
 	

@@ -1,7 +1,13 @@
 $(function(){
-    $.ajax({
-        url: "Select.php",
-        type: "POST",
+    var type=location.search;//取得HTTP Get: ?type=
+    
+    var locHref = location.href;
+    
+    if(locHref=="http://localhost/Project/index.php")type="?type=1";//預設為1;
+    
+     $.ajax({
+        url: "Select.php"+type,
+        type: "GET",
        
         
         success: function(data){
@@ -54,6 +60,6 @@ $(function(){
 
             }); 
     
-	
+
 	    
 });

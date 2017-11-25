@@ -13,17 +13,34 @@ header("Content-Type:text/html; charset=utf-8");
     
 	  
         $uid="'".$_SESSION['uid']."'";
-        
+        if(isset($_GET['type']))
+        {
+            $type=$_GET['type'];//物品種類(cid)
+            //sql_1:select 物品 文章
+            $sql ="select * from object o,MEMBER m where o.mid=m.mid and o.cid=$type";
+        }
+        else if(isset($_GET['id'] )){
+            $id="'".$_GET['id']."'";//PO文者
+            //sql_2:select 其他使用者的 文章
+            $sql ="select * from object o,MEMBER m where o.mid=m.mid and m.mid=$id";
+        }
+        else{
+            $id="'".$_SESSION['uid']."'";//PO文者
+            //sql_3:select 個人網頁的 文章
+            $sql ="select * from object o,MEMBER m where o.mid=m.mid and m.mid=$id";
+        }
         //宣告陣列
         $oid=array();
         $oname=array();
         $odec=array();
         $opic=array();
+        $mname=array();
+	    
         
-	   
-	  
-        //sql:select 物品 文章
-        $sql ="select * from Object ";
+        
+        
+        
+        
         $stmt = OCIParse($db_link, $sql);
         if(!$stmt) {
           echo "<h1>ERROR – Could not parse SQL select statement.</h1>";
@@ -40,7 +57,7 @@ header("Content-Type:text/html; charset=utf-8");
               array_push($oname,$row[1]);//取得
               array_push($odec,$row[2]);//取得物品敘述
               array_push($opic,$row[3]);//取得圖片路徑
-              
+              array_push($mname,$row[10]);//取得PO文者名字
            }
            
         }
@@ -49,8 +66,10 @@ header("Content-Type:text/html; charset=utf-8");
         $json = array(
             "oid" => $oid,
             "oname" =>$oname,
-            "odec" =>$odec,
-            "opic" =>$opic
+            "odec"=>$odec,
+            "opic" =>$opic,
+            "mname" =>$mname,
+            
         );
         echo json_encode($json);
 

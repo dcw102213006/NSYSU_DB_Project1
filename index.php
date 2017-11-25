@@ -85,6 +85,7 @@ div.desc { /* Add desc...區塊的大小*/
     <img src="title.png" alt="" width="198" height="84" class="tp" />
   	<input id="search-box" type="text" name="search-box"/>
     </form>
+     
     
 <aside class="loginside" align="right">
 <?php
@@ -104,7 +105,15 @@ div.desc { /* Add desc...區塊的大小*/
 </div>
 
 
-  
+  <div class="w3-container" align="right" style="margin-top:20px">
+		<div class="w3-dropdown-hover" >
+        <img class="w3-btn w3-circle w3-image w3-jumbo" src="img_fjords.jpg" >
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+        <a href="profile.php?id=<?php echo $uid?>" class="w3-bar-item w3-button">個人檔案</a>
+        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
+        </div>
+        </div>
+    </div>
   
   <div class="fixed w3-container post" align="center">
     <a href="post.php?id=<?php echo $uid?>"><button class="button" >POST</button></a>
@@ -140,16 +149,7 @@ div.desc { /* Add desc...區塊的大小*/
       <button type="button" class="btn btn-default B6" onclick="select(8)">文具</button>
     </div>
     
-        <div class="w3-container profile" align="right">
-		<div class="w3-dropdown-hover">
-        <img class="w3-circle w3-image w3-jumbo" src="img_fjords.jpg" >
-        <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="#" class="w3-bar-item w3-button">個人檔案</a>
-        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
-        </div>
-        </div>
-    
-        </div>
+        
   </div>
  
   
@@ -181,7 +181,7 @@ div.desc { /* Add desc...區塊的大小*/
   
 </div>
 
-
+ 
 
 
 </body>

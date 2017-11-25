@@ -104,6 +104,7 @@ div.desc { /* Add desc...區塊的大小*/
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   </aside>
   
   <div class="fixed w3-container post" align="center">
@@ -116,6 +117,10 @@ div.desc { /* Add desc...區塊的大小*/
 <div class="container group" align="center">
        
 >>>>>>> ed2088116b4b753ade9d8ab87266294d9715b110
+=======
+<div class="container group" align="center">
+       
+>>>>>>> 5100120b2c00d4dc97ad31dc2d69c2f240df87b2
     <div class="btn-group btype" role="group">
       <div class="btn-group" role="group">
         <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false" >服飾<span class="caret"></span></button>
@@ -135,6 +140,15 @@ div.desc { /* Add desc...區塊的大小*/
       <button type="button" class="btn btn-default B4" onclick="select(6)">3C</button>
       <button type="button" class="btn btn-default B5" onclick="select(7)">書本</button>
       <button type="button" class="btn btn-default B6" onclick="select(8)">文具</button>
+    </div>
+    
+        <div class="w3-container profile" align="right">
+		<div class="w3-dropdown-hover">
+        <img class="w3-circle w3-image w3-jumbo" src="img_fjords.jpg" >
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+        <a href="#" class="w3-bar-item w3-button">個人檔案</a>
+        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
+        </div>
     </div>
     
         <div class="w3-container profile" align="right">
@@ -177,9 +191,12 @@ div.desc { /* Add desc...區塊的大小*/
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
+=======
+>>>>>>> 5100120b2c00d4dc97ad31dc2d69c2f240df87b2
 <div class="fixed w3-container post" align="center">
   <a href="post.php?id=<?php echo $uid?>"><button class="button" >POST</button></a>
 </div>

@@ -100,7 +100,7 @@ div.desc { /* Add desc...區塊的大小*/
   	<input id="search-box" type="text" name="search-box"/>
     </form>
 </div>
-
+<div class="container" align="center">
 <div class="side"> 
 		<div class="w3-dropdown-hover profile">
         <img class="w3-circle w3-image w3-xlarge" src="head.png" style="width:64" height="64">

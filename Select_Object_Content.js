@@ -42,8 +42,11 @@ $(function(){
                 
                 modal.style.display = "block";
                 $('#img01').attr("src",this.src);
+				
+				$('#img_info').css("height",$('img#img01.modal-content').prop("height"));//文章內容高度等於圖片呈現的高度
+				
                 var delete_id=this.id;
-                
+              
                 delete_obj(delete_id);
                 
                 

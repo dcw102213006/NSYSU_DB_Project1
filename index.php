@@ -78,7 +78,7 @@ div.desc { /* Add desc...區塊的大小*/
 </head>
 <body class="body">
 
-<div class="w3-container w3-blue-gray topbar" align="center">
+<div class="w3-container w3-blue-gray topbar" align="left">
     
     <div class="right">
 	<?php
@@ -95,27 +95,15 @@ div.desc { /* Add desc...區塊的大小*/
 	?>  
 	</div>
     
-    <form action="">
+    <form action="search">
     <img src="title.png" alt="" width="106" height="42" class="tp" />
   	<input id="search-box" type="text" name="search-box"/>
+    <button class="button sb" >搜尋</button></a> 
     </form>
-</div>
-<div class="container" align="center">
-<div class="side"> 
-		<div class="w3-dropdown-hover profile">
-        <img class="w3-circle w3-image w3-xlarge" src="head.png" style="width:64" height="64">
-        <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="profile.php?id=<?php echo $uid; ?>" class="w3-bar-item w3-button">個人檔案</a>
-        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
-        </div>
-        </div>
-</div>
-
-<div class="container group" align="center">
-  	
-
-         
-    <div class="btn-group btype" role="group" align="center">
+    
+    
+    <div class="container group" align="center">
+     <div class="btn-group btype" role="group" align="center">
       <div class="btn-group" role="group">
         <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle		="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
@@ -135,9 +123,30 @@ div.desc { /* Add desc...區塊的大小*/
       <button type="button" class="btn btn-default B5" onclick="select(7)">書本</button>
       <button type="button" class="btn btn-default B6" onclick="select(8)">文具</button>
     </div>
+   </div>
+   
+   	<div class="side">
+	<div class="w3-dropdown-hover profile">
+        <img class="w3-circle w3-image w3-xlarge" src="head.png" style="width=56" height="56">
+        <div class="w3-dropdown-content w3-bar-block droplist">
+        <img class="w3-bar-item w3-blue-gray s" style="height:5">
+        <a href="profile.php?id=<?php echo $uid; ?>" class="w3-bar-item w3-button">個人檔案</a>
+        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
+        </div>
+      </div>
+      </div>
+</div>
+
+
+<div class="container" align="center">
+
+
+
+  	
+
+         
+
     
-    
-  </div>
  
   
 <div id="wall" align="center">

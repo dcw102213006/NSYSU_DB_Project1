@@ -106,13 +106,11 @@
 	font-size: small;
 }
 .profile {
-	margin-right: 10%;
-	float: right;
 	border:none;
 	border-radius: 50%;
 	position:fixed;
 	top:2px;
-	width:56px;
+	width:56;
 	height:56;
 }
 #side{
@@ -131,9 +129,11 @@
 	border-radius: 100px;
 }
 .side {
+	width:10%;
 	position:absolute;
-	top:15px;
-	right:30%;
+	top:10px;
+	float:left;
+	margin-left:75%;
 }
 .droplist{
 	margin-top:10px;
@@ -186,10 +186,12 @@
 	height: 15%;
 }
 .group {
-	width:90%;
-	margin-top: 1%;
+	width:55%;
+	float:right;
 	position:fixed;
-	top:2%;
+	top:5%;
+	right:20%;
+	margin-left:30%;
 }
 div.fixed {
     position: fixed;
@@ -198,14 +200,13 @@ div.fixed {
     width: 100%;
 }
 #head {
-	height: 5%;
-	width: 5%;
 	margin-left: 20%;
 	align-self: center;
+	margin-top: 10%;
 }
 .selfdesc {
 	width: 100%;
-	height: 20%;
+	height: 100px;
 	margin-top: 80px;
 	background-color: #F0ECC7;
 }

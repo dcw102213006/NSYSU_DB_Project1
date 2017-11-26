@@ -169,7 +169,7 @@ div.desc { /* Add desc...區塊的大小*/
   <span class="close">&times;</span>
   <div class="modal-content" id="text_area" style="">
     <img class="modal-content" id="img01" style="float:left"  >
-    
+    <div id="img_info" style="background-color:white;width:1000px;height:558px"></div>
   </div>
   
   

@@ -54,7 +54,34 @@ div.desc { /* Add desc...區塊的大小*/
     float: left;
     width: 30%;
 }
+.modal-backdrop{
+    background-color:white;
+    Z-index:0;
+}
+.modal{
+    background-color:rgba(199, 194, 194, 0.9);
+}
+.loader {
+  margin-left:150px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  
+}
 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 @media only screen and (max-width: 893px){
     .responsive {
         width: 49.99999%;
@@ -99,55 +126,120 @@ div.desc { /* Add desc...區塊的大小*/
   else{
        $uid=$_SESSION['uid'];
 	   echo $_SESSION['uname'].'您好!'.'<a href="logout.php">登出</a>' ;
+       $id=$_GET['id'];//網址參數的id
+       echo $id;
+       
+       
   }
 ?>
 </aside>
 </div>
+
+
 <div class="container" align="center">
- <div class="container type" align="center">
-<div class="container selfdesc">
-<img src="head.png" alt="headsticker" id="head"/> <br>
-	<div class="container desc-text" align="center">
-    <?php
-	echo $_SESSION['uname'];
-    ?><br>
-    我是李帥，很醜
-    </div> 
+        <div class="container type" align="center">
+        <div class="container selfdesc">
+        <img src="head.png" alt="headsticker" id="head"/> <br>
+            <div class="container desc-text" align="center">
+            <?php
+            echo $_SESSION['uname'];
+            ?><br>
+            我是李帥，很醜
+            </div> 
+        </div>
+         
+          </div>
+        <div id="wall" align="center">
+              
+        </div>
+  
+      
 </div>
  
-  </div>
-<div id="wall" align="center">
-      
-</div>
-  
-      
-</div>
-  
- </div>
-
-      
-    </div>
-  
-
-  </div>
-</div>
 
 
 <div id="myModal" class="modal"  >
-  <span class="close">&times;</span>
+  <span id="close" class="close">&times;</span>
+  
   <div class="modal-content" id="text_area" style="">
     <img class="modal-content" id="img01" style="float:left"  >
-    <div id="img_info" style="background-color:white;width:1000px;height:558px"><div id="delete_btn" style="float:right;margin:10px" >...</div></div>
+    <div id="img_info" style="background-color:white;width:1000px;height:558px"><?php if ($uid==$id) echo '<div id="delete_btn" style="float:right;margin:10px" >...</div>' ;?> </div>
   </div>
   
   
  
   
 </div>
+
 
 <div class="fixed w3-container post" align="center">
   <a href="post.php?id=<?php echo $uid?>"><button class="button" >POST</button></a>
 </div>
+
+
+
+
+
+  <button id="show_delete_modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" style="display:none">Open Modal</button>
+  
+  <!-- delete Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">刪除貼文</h4>
+        </div>
+        <div class="modal-body" id="delete_msq">
+          <p id="d_msq1">即將刪除此貼文,刪除後您將看不到此貼文,是否繼續?</p>
+          
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#myModal3" onclick="delete_quest()">Check</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <button id="show_delete_modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" style="display:none">Open Modal</button>
+
+  <!-- delete Modal -->
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">刪除貼文</h4>
+        </div>
+        <div class="modal-body" id="delete_msq">
+          
+          <p id="d_msq2" >請稍候...</p>
+          <div class="loader" id="loader" ></div>
+          
+        </div>
+        <div class="modal-footer">
+          <button id="delete_suc" type="button" class="btn btn-default" data-dismiss="modal" style="display:none">success</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+
+
+
+
+
 </body>
 
 

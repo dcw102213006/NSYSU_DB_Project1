@@ -13,7 +13,7 @@ $(function(){
         success: function(data){
             data=JSON.parse(data);
             for(var i=0;i<data.oid.length;i++){
-                var content=`<div class="gallery">
+                var content=`<div class="gallery"  id=gallery`+data.oid[i]+`>
                               
                                 <img src=`+data.opic[i]+`  id=`+data.oid[i]+` ;  width: 1000px; height: 741px; >
                              

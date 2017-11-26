@@ -17,7 +17,7 @@
 
 <style>
 div.gallery {
-    margin: 2%;
+    margin: 20px;
     border: 1px solid #ccc;
     float: left;
     width: 250px;

@@ -16,22 +16,23 @@
 
 
 <style>
+.space{
+	border-spacing: 100% 100%;
+	overflow: hidden;
+}
 div.gallery {
-    margin: 20px;
-    border: 1px solid #ccc;
+    border: 5px solid #FCFCFC;
     float: left;
-    width: 250px;
-    height:250px;
+	margin:1%;
 }
 
 div.gallery:hover {
-    border: 10px solid #FFF;
+    border: 2px solid #FFF;
 }
 
 div.gallery img {
-    width: 240px;
-    height: 240px;
-    margin-top:5px;
+    width: 235px;
+    height: 235px;
 }
 
 div.desc { /* Add desc...區塊的大小*/
@@ -40,14 +41,19 @@ div.desc { /* Add desc...區塊的大小*/
 	background-color: #FCFCFC
 }
 #wall{
-    width:80%;
+    width:100%;
+	left:2%;
+	padding:100px;
+	margin-top: 20px;
+	border-spacing: 100% 100%;
+	overflow: hidden;
 }
 * {
     box-sizing: border-box;
 }
 
 .responsive {
-    padding: 0 6px;
+    padding: 0 4px;
     float: left;
     width: 30%;
 }
@@ -64,8 +70,12 @@ div.desc { /* Add desc...區塊的大小*/
         width: 100%;
     }
     .modal-content{
-        clear:left;
-        margin-right:100px;
+        clear:both;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);		
     }
 }
 
@@ -74,6 +84,7 @@ div.desc { /* Add desc...區塊的大小*/
     display: table;
     clear: both;
 }
+
 </style>
 </head>
 <body class="body">
@@ -96,9 +107,11 @@ div.desc { /* Add desc...區塊的大小*/
 	</div>
     
     <form action="search">
-    <img src="title.png" alt="" width="106" height="42" class="tp" />
-  	<input id="search-box" type="text" name="search-box"/>
-    <button class="button sb" >搜尋</button></a> 
+		<a href="index.php">
+			<img src="title.png" alt="title" width="124" height="56" class="tp" />
+		</a>
+		<input id="search-box" type="text" name="search-box"/>
+		<button type="button" class="sb">搜尋</button> 
     </form>
     
     
@@ -138,23 +151,15 @@ div.desc { /* Add desc...區塊的大小*/
 </div>
 
 
-<div class="container" align="center">
+	<div class="space" align="center"><!--用來控制wall的overflow的區塊-->
 
 
-
-  	
-
-         
-
-    
- 
-  
-<div id="wall" align="center">
+		<div id="wall" align="center">
       
-</div>
+		</div>
   
       
-</div>
+	</div>
   
   
 
@@ -165,11 +170,15 @@ div.desc { /* Add desc...區塊的大小*/
 </div>
 
 
-<div id="myModal" class="modal"  >
+<div id="myModal" class="modal">
   <span class="close">&times;</span>
-  <div class="modal-content" id="text_area" style="">
-    <img class="modal-content" id="img01" style="float:left"  >
-    <div id="img_info" style="background-color:white;width:1000px;height:558px"><div id="obj_cont"></div></div>
+  <div class="modal-content" id="text_area">
+    <img class="modal-content" id="img01" style="float:left; width:512px; height:512px">
+    <!--用白色的DIV裝整個圖片包含敘述部分-->
+	<div id="img_info" style="background-color:white; width:800px; height:512px">
+		<div id="obj_cont" align="left" style="float: left; width:200px; height:500px; margin-left:50px; margin-top:20px">
+		</div>
+	</div>
   </div>
   
   

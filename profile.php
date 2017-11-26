@@ -108,43 +108,65 @@ div.desc { /* Add desc...區塊的大小*/
 </head>
 <body class="body">
 
-<div class="w3-container w3-blue-gray topbar">
-	<form action="">
-    <img src="title.png" alt="" width="198" height="84" class="tp" />
-  	<input id="search-box" type="text" name="search-box"/>
-    </form>
+<div class="w3-container w3-blue-gray topbar" align="left">
     
-<aside class="loginside" align="right">
-<?php
-
-  require 'Oracle_connect.php';
+    <div class="right">
+	<?php
+  	require 'Oracle_connect.php';
   
-  if(!isset($_SESSION['uname'])){//若使用者尚未登入
+  	if(!isset($_SESSION['uname'])){//若使用者尚未登入
       
 	  header('Location:login.php');
-  }
-  else{
+  		}
+  	else{
        $uid=$_SESSION['uid'];
 	   echo $_SESSION['uname'].'您好!'.'<a href="logout.php">登出</a>' ;
-       $id=$_GET['id'];//網址參數的id
-       echo $id;
-       
-       
-  }
-?>
-</aside>
+  		}
+	?>  
+	</div>
+    
+    <form action="search">
+    <img src="title.png" alt="" width="106" height="42" class="tp" />
+  	<input id="search-box" type="text" name="search-box"/>
+    <button class="button sb" >搜尋</button></a> 
+    </form>
+    
+    
+    <div class="container group" align="center">
+     <div class="btn-group btype" role="group" align="center">
+      <div class="btn-group" role="group">
+        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle		="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
+          <li><a href="#" onclick="select(1)">女生</a></li>
+          <li><a href="#" onclick="select(2)">男生</a></li>
+        </ul>
+      </div>
+      <div class="btn-group" role="group">
+        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B2" data-toggle="dropdown" aria-expanded="false">鞋類<span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
+          <li><a href="#" onclick="select(3)">女生</a></li>
+          <li><a href="#" onclick="select(4)">男生</a></li>
+        </ul>
+      </div>
+       <button type="button" class="btn btn-default B3"  onclick="select(5)">生活用品</button>
+      <button type="button" class="btn btn-default B4" onclick="select(6)">3C</button>
+      <button type="button" class="btn btn-default B5" onclick="select(7)">書本</button>
+      <button type="button" class="btn btn-default B6" onclick="select(8)">文具</button>
+    </div>
+   </div>
 </div>
 
 
-<div class="container" align="center">
-        <div class="container type" align="center">
-        <div class="container selfdesc">
-        <img src="head.png" alt="headsticker" id="head"/> <br>
+        <div class="container selfdesc" align="center" style="background:#E3DEB0">
+        <img src="head.png" alt="headsticker" id="headsticker" width="128" height="128"/>
             <div class="container desc-text" align="center">
             <?php
             echo $_SESSION['uname'];
-            ?><br>
-            我是李帥，很醜
+            ?>
+            <button class="edit">編輯個人檔案</button>
+            <br>
+            幾樣交換物品<br>
+            個人檔案敘述放在這裡
             </div> 
         </div>
          

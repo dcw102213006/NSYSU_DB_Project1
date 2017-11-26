@@ -6,7 +6,7 @@
 <style>
 
 .banner {
-	width: 100%;	
+	width: 80%;	
 }
 
 .container{
@@ -17,6 +17,7 @@
 #btn{
 	margin-top: 5%;
 	background-color: #3A385B;
+	cursor: pointer;
 	color: #FCFCFC;
 	width: 60px;
 	height: 40px;
@@ -28,6 +29,7 @@
 #btn_c{
 	margin-top: 5%;
 	background-color: #EF4A4A;
+	cursor: pointer;
 	color: #FCFCFC;
 	width: 60px;
 	height: 40px;
@@ -72,22 +74,22 @@
 	$stmt = oci_parse($db_link, $sql);                 
     oci_execute($stmt);
     if($row=oci_fetch_row($stmt)) {
-        	echo "EMAIL或帳號已有人使用過";
+        	echo "<script>alert('EMAIL或帳號已有人使用過');</script";
     }
     else{   	
     	$sql="SELECT MID FROM MEMBER ORDER BY MID DESC";
     	$stmt = OCI_Parse($db_link, $sql);
     	oci_execute($stmt);
     		if($row = oci_fetch_row($stmt)){
-              	 $num=preg_replace('/[^\d]/','',$row[0])+1;
+              	 $num=preg_replace('/[^\d]/','',$row[0])+1;  //取出最後一個註冊的人的MID再加一
              	 $mid="'".trim("C".$num)."'";
              	 $sql="INSERT INTO MEMBER (MID,MNAME,EMAIL,ACCOUNT,PASSWORD) VALUES ($mid,$name,$email,$account,$password)";
              	 $stmt=OCI_Parse($db_link,$sql);
              	 OCI_Execute($stmt);
-             	 echo "註冊成功";
+             	 echo "<script>alert('註冊成功，將在按下確認後跳轉頁面'); location.href = 'login.php';</script>";
            	}
            	else{
-               	 echo 'select error!';
+               	 echo "<script>alert('select error!');</script>";
            	}
     		
 	}

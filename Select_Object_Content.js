@@ -12,7 +12,9 @@ $(function(){
         
         success: function(data){
             data=JSON.parse(data);
+            
             for(var i=0;i<data.oid.length;i++){
+               
                 var content=`<div class="gallery"  id=gallery`+data.oid[i]+`>
                               
                                 <img src=`+data.opic[i]+`  id=`+data.oid[i]+` ;  width: 1000px; height: 741px; >
@@ -26,7 +28,7 @@ $(function(){
                //$('#img_info').append(`<div id="delete_btn" style="float:right;margin:10px" >...</div>`);
                
             }   
-            
+            this.data=data;
             //使用者點擊圖片,彈出modal
 
 
@@ -44,7 +46,7 @@ $(function(){
                 $('#img01').attr("src",this.src);
 				
 				$('#img_info').css("height",$('img#img01.modal-content').prop("height"));//文章內容高度等於圖片呈現的高度
-				
+				$('#obj_cont').html(data.mname[this.id]+'<hr><span style="bold">物品名稱:</span>'+data.oname[this.id]+'</br><br>內容:<br>'+data.odec[this.id]  );
                 var delete_id=this.id;
               
                 delete_obj(delete_id);

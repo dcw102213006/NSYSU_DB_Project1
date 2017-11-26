@@ -127,8 +127,9 @@ div.desc { /* Add desc...區塊的大小*/
        $uid=$_SESSION['uid'];
 	   echo $_SESSION['uname'].'您好!'.'<a href="logout.php">登出</a>' ;
        $id=$_GET['id'];//網址參數的id
-       echo $id;
+       echo $uid;
        
+        echo $id;
        
   }
 ?>
@@ -163,7 +164,7 @@ div.desc { /* Add desc...區塊的大小*/
   
   <div class="modal-content" id="text_area" style="">
     <img class="modal-content" id="img01" style="float:left"  >
-    <div id="img_info" style="background-color:white;width:1000px;height:558px"><?php if ($uid==$id) echo '<div id="delete_btn" style="float:right;margin:10px" >...</div>' ;?> </div>
+    <div id="img_info" style="background-color:white;width:1000px;height:558px"><?php if ($uid==$id) echo '<div id="delete_btn" style="float:right;margin:10px" >...</div>' ;?> <div id="obj_cont"></div></div>
   </div>
   
   

@@ -11,24 +11,24 @@
     top: 0;
 }
 .tp {
-	margin-top: 8px;
+	margin-top: 4px;
 	margin-left: 20px;
 }
 #search-box{
 	font-size: 13px;
-	width: 100px;
+	width: 150px;
 	background-color: #FFF;
 	background-image: url(../search-box.png);
 	background-repeat: no-repeat;
 	padding: 3px 3px 3px 22px;
-	margin-top: 2%;
+	margin-top: 25px;
 	margin-left: 1%;
 	color: #060606;
 }
 .sb{
 	display: inline-block;
-	padding: 3px 5px;
-	font-size: 5px;
+	padding: 6px 10px;
+	font-size: 14px;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
@@ -37,7 +37,8 @@
 	background-color: #49485F;
 	border: none;
 	border-radius: 15px;
-	margin-top: 1%;
+	box-shadow: 0 3px #999;
+	margin-top: 25px;
 	margin-left: 1%;
 	margin-bottom: 2%;
 }
@@ -61,6 +62,14 @@
 	margin-left: 5px;
 	margin-right: 5px;
 	width: 230px;
+}
+.group {
+	width:auto;
+	float:right;
+	position:fixed;
+	top:25px;
+	right:30%;
+	margin-left:30%;
 }
 .B1 {
 	width: 80px;
@@ -108,7 +117,9 @@
 	border:none;
 	border-radius: 50%;
 	position:fixed;
-	top:2px;
+	top:1px;
+	float:right;
+	right:30%;
 	width:56;
 	height:56;
 }
@@ -144,13 +155,6 @@
 	top:15px;
 	float: right;
 }
-
-.wall{
-	width: 80%;
-	height: 40%;
-	margin-top: 5%;
-}
-
 .post {
 	background-color: #B8B8B9;
 	height: 10%;
@@ -172,25 +176,16 @@
 	margin-top: 1%;
 	margin-bottom: 2%;
 }
-
 .button:hover {background-color: #3e8e41}
 
 .button:active {
   background-color: #3e8e41;
-  box-shadow: 0 3px #666;
+  box-shadow: 0 1px #666;
   transform: translateY(4px);
 }
 .haed {
 	width: 15%;
 	height: 15%;
-}
-.group {
-	width:55%;
-	float:right;
-	position:fixed;
-	top:5%;
-	right:20%;
-	margin-left:30%;
 }
 div.fixed {
     position: fixed;

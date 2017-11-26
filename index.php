@@ -105,7 +105,7 @@ div.desc { /* Add desc...區塊的大小*/
     <div class="container group" align="center">
      <div class="btn-group btype" role="group" align="center">
       <div class="btn-group" role="group">
-        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle		="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
+        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
           <li><a href="#" onclick="select(1)">女生</a></li>
           <li><a href="#" onclick="select(2)">男生</a></li>
@@ -169,7 +169,7 @@ div.desc { /* Add desc...區塊的大小*/
   <span class="close">&times;</span>
   <div class="modal-content" id="text_area" style="">
     <img class="modal-content" id="img01" style="float:left"  >
-    <div id="img_info" style="background-color:white;width:1000px;height:558px"></div>
+    <div id="img_info" style="background-color:white;width:1000px;height:558px"><div id="obj_cont"></div></div>
   </div>
   
   

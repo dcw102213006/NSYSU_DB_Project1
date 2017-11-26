@@ -14,6 +14,7 @@
   <script src="//f2e.cloudcdn.biz/cdn_lib/react@15.6.1/react-dom.min.js"></script>
   <script src="Select_Object_Content.js"></script>
   <script src="delete.js"></script>
+  <script src="update.js"></script>
 
 
 
@@ -127,9 +128,7 @@ div.desc { /* Add desc...區塊的大小*/
        $uid=$_SESSION['uid'];
 	   echo $_SESSION['uname'].'您好!'.'<a href="logout.php">登出</a>' ;
        $id=$_GET['id'];//網址參數的id
-       echo $uid;
-       
-        echo $id;
+      
        
   }
 ?>
@@ -164,7 +163,11 @@ div.desc { /* Add desc...區塊的大小*/
   
   <div class="modal-content" id="text_area" style="">
     <img class="modal-content" id="img01" style="float:left"  >
-    <div id="img_info" style="background-color:white;width:1000px;height:558px"><?php if ($uid==$id) echo '<div id="delete_btn" style="float:right;margin:10px" >...</div>' ;?> <div id="obj_cont"></div></div>
+    <div id="img_info" style="background-color:white;width:1000px;height:558px"><?php if ($uid==$id) echo '<button id="edit_btn" type="button"  class="btn btn-default dropdown-toggle B1">編輯</button><div id="delete_btn" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false"  style="float:right;margin:10px" >...</div>' ;?> <div id="obj_cont"></div></div>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="delete_btn">
+          <li><a href="#" onclick="select(1)">女生</a></li>
+          <li><a href="#" onclick="select(2)">男生</a></li>
+        </ul>
   </div>
   
   
@@ -235,7 +238,36 @@ div.desc { /* Add desc...區塊的大小*/
   </div>
   
   
-  
+  <!-- update Modal -->
+  <button id="show_edit_modal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4" style="display:none">Open Modal</button>
+  <div class="modal fade" id="myModal4" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">編輯貼文</h4>
+        </div>
+        <div class="modal-body" id="delete_msq">
+          
+          物品名稱:<input type="text" id="obj_name">
+          <br>
+          內容:
+          <br>
+          <textarea rows="20" cols="40" placeholder="對這個物品寫點敘述吧" id="obj_dec" name="obj_dec"></textarea>
+                
+           
+		   <button onclick="edit_request()" style="float:right" type="button" class="btn btn-info"  id="img_submit">更改</button>
+        </div>
+        <div class="modal-footer">
+          <button id="delete_suc" type="button" class="btn btn-default" data-dismiss="modal" style="display:none">success</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 
 

@@ -48,12 +48,12 @@ $(function(){
 				$('#img_info').css("height",$('img#img01.modal-content').prop("height"));//文章內容高度等於圖片呈現的高度
 				$('#obj_cont').html(data.mname[this.id]+'<hr><span style="bold">物品名稱:</span>'+data.oname[this.id]+'</br><br>內容:<br>'+data.odec[this.id]  );
                 var delete_id=this.id;
-              
+                
                 delete_obj(delete_id);
                 
+                var edit_id=this.id;
                 
-                
-                
+                edit_obj(edit_id);
                 
                 //captionText.innerHTML = this.alt;
             });

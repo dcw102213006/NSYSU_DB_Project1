@@ -1,26 +1,37 @@
 $(document).ready(function (e){
-$("#updateForm").on('submit',(function(e){
-        
+    
+     $("#edit_btn").on('click',(function(e){
         e.preventDefault();//阻止表單跳頁丟值
-
-        $.ajax({
-        url: "update.php",
+        
+        $("#show_edit_modal").click();
+    
+    }));  
+});
+function edit_obj(edit_id){
+    this.edit_id=edit_id;
+    
+}
+function edit_request(){
+    
+  
+    
+     $.ajax({
+        url: "update_obj.php",   //傳值到object_delete.php做SQL運算
         type: "POST",
-        data:  new FormData(this),
+        dataType:  "json",
         contentType: false,
         cache: false,
         processData:false,
+        data:{"obj_dec":$("#obj_dec").val() ,"obj_name":$("#obj_name").val() ,"oid":edit_id},
         success: function(data){
-            if(data.success){
-                alert(data.success);
-                document.getElementById('name').innerHTML=data.name;
-                document.getElementById('mail').innerHTML=data.email;
-                document.getElementById('pfile').innerHTML=data.profile;
-            }
-		},
-        error: function(){
+            
+            
+            
+           
+        },
+        error: function(data){
+            
         } 	        
             
-		});
-    }));
-});
+    });    
+}

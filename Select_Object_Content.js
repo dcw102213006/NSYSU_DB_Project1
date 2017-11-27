@@ -13,11 +13,13 @@ $(function(){
         success: function(data){
             data=JSON.parse(data);
             
+            
+            
             for(var i=0;i<data.oid.length;i++){
-               
+                
                 var content=`<div class="gallery"  id=gallery`+data.oid[i]+`>
                               
-                                <img src=`+data.opic[i]+`  id=`+data.oid[i]+` ;  width: 1000px; height: 741px; >
+                                <img src=`+data.opic[i]+`  id=`+i+` ;  width: 1000px; height: 741px; >
                              
                               <div class="desc"><span class="glyphicon glyphicon-heart-empty" style="font-size:40px"></span></div>
                             </div>`;
@@ -27,7 +29,7 @@ $(function(){
                $('#wall').append(content);//將文章輸出至index.php
                //$('#img_info').append(`<div id="delete_btn" style="float:right;margin:10px" >...</div>`);
                
-            }   
+            }     
             this.data=data;
             //使用者點擊圖片,彈出modal
 
@@ -47,11 +49,11 @@ $(function(){
 				
 				$('#img_info').css("height",$('img#img01.modal-content').prop("height"));//文章內容高度等於圖片呈現的高度
 				$('#obj_cont').html(data.mname[this.id]+'<hr><span style="bold">物品名稱:</span>'+data.oname[this.id]+'</br><br>內容:<br>'+data.odec[this.id]  );
-                var delete_id=this.id;
+                var delete_id=data.oid[this.id];
                 
                 delete_obj(delete_id);
                 
-                var edit_id=this.id;
+                var edit_id=data.oid[this.id];
                 
                 edit_obj(edit_id);
                 
@@ -64,8 +66,8 @@ $(function(){
 
                 // When the user clicks on <span> (x), close the modal
                 span.onclick = function() { 
-                modal.style.display = "none";
-            }            
+                    modal.style.display = "none";
+                }            
 
             },
             error: function(){
@@ -77,3 +79,6 @@ $(function(){
 
 	    
 });
+function get_index_of_obj(data, index){//傳回資料項相對應的索引值
+     
+}

@@ -58,37 +58,44 @@
 
 <style>
 div.gallery {
-    margin: 40px;
-    border: 1px solid #ccc;
+    border: 5px solid #FCFCFC;
     float: left;
-    width: 250px;
-    height:250px;
+	margin:1%;
 }
 
-div.gallery:hover {
+div.gallery img:hover {
     border: 10px solid #FFF;
 }
 
 div.gallery img {
-    width: 240px;
-    height: 240px;
-    margin-top:5px;
+    width: 235px;
+    height: 235px;
 }
 
 div.desc { /* Add desc...區塊的大小*/
     padding: 15px;
     text-align: center;
-  background-color: #FCFCFC
+	background-color: #FCFCFC
 }
 #wall{
-    width:60%;
+    width:100%;
+	left:2%;
+	padding:100px;
+	border-spacing: 100% 100%;
+	overflow: hidden;
 }
 * {
     box-sizing: border-box;
 }
-
+.modal-backdrop{
+    z-index:0;
+    
+}
+.modal{
+   background-color:rgba(218, 207, 207, 0.9);
+}
 .responsive {
-    padding: 0 6px;
+    padding: 0 4px;
     float: left;
     width: 30%;
 }
@@ -105,8 +112,12 @@ div.desc { /* Add desc...區塊的大小*/
         width: 100%;
     }
     .modal-content{
-        clear:left;
-        margin-right:100px;
+        clear:both;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);		
     }
 }
 
@@ -115,33 +126,71 @@ div.desc { /* Add desc...區塊的大小*/
     display: table;
     clear: both;
 }
+.result-text{
+	height: 30px;
+	margin-top: 10px;
+}
+
 </style>
 </head>
 <body class="body">
 
 <div class="w3-container w3-blue-gray topbar">
-  <form action="itemsearch.php" method="POST">
-    <a href="index.php">
-      <img src="title.png" alt="title" width="124" height="56" class="tp" />
-    </a>
-    <input id="search-box" type="text" name="search-box"/>
-    <button type="submit" class="sb">搜尋</button> 
+    <form action="itemsearch.php" method=POST>
+		<a href="index.php">
+			<img src="title.png" alt="title" width="124" height="56" class="tp" />
+		</a>
+		<input id="search-box" type="text" name="search-box"/>
+		<button type="submit" class="sb">搜尋</button> 
     </form>
     
-<aside class="loginside" align="right">
-</aside>
-</div>
-<div class="container" align="center">
- <div class="container type" align="center">
-  <div class="container selfdesc">
-  <div class="container desc-text" align="center">
+    
+    <div class="container group" align="center">
+     <div class="btn-group btype" role="group" align="center">
+      <div class="btn-group" role="group">
+        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
+          <li><a href="#" onclick="select(1)">女生</a></li>
+          <li><a href="#" onclick="select(2)">男生</a></li>
+        </ul>
+      </div>
+      <div class="btn-group" role="group">
+        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B2" data-toggle="dropdown" aria-expanded="false">鞋類<span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
+          <li><a href="#" onclick="select(3)">女生</a></li>
+          <li><a href="#" onclick="select(4)">男生</a></li>
+        </ul>
+      </div>
+       <button type="button" class="btn btn-default B3"  onclick="select(5)">生活用品</button>
+      <button type="button" class="btn btn-default B4" onclick="select(6)">3C</button>
+      <button type="button" class="btn btn-default B5" onclick="select(7)">書本</button>
+      <button type="button" class="btn btn-default B6" onclick="select(8)">文具</button>
+    </div>
+   </div>
+   
+   	<div class="side">
+	<div class="w3-dropdown-hover profile">
+        <img class="w3-circle w3-image w3-xlarge" src="head.png" style="width=56" height="56">
+        <div class="w3-dropdown-content w3-bar-block droplist">
+        <img class="w3-bar-item w3-blue-gray s" style="height:5">
+        <a href="profile.php?id=<?php echo $uid; ?>" class="w3-bar-item w3-button">個人檔案</a>
+        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
+        </div>
+      </div>
+      </div>
+    </div>
+	
+
+ 
+  <div class="container selfdesc" style="height:50px">
+  <div class="container result-text" align="center">
     <?php
   echo "共".count($oname)."項結果";
       ?><br>
     </div> 
 </div>
  
-  </div>
+ 
 <div id="wall" align="center">
  <?php 
       for($i=0;$i<count($oname);$i++){

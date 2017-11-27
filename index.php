@@ -310,7 +310,7 @@ function likefunction (otimestamp,oid,omid){
 
 <div class="fixed w3-container post" align="center">
   
-  <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">PO文</button>
+  <button  type="button" class="button btn-info btn-lg" data-toggle="modal" data-target="#myModal2">PO文</button>
 </div>
 
 

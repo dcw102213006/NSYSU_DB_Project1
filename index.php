@@ -106,12 +106,12 @@ div.desc { /* Add desc...區塊的大小*/
 	?>  
 	</div>
     
-    <form action="search">
+    <form action="itemsearch.php" method=POST>
 		<a href="index.php">
 			<img src="title.png" alt="title" width="124" height="56" class="tp" />
 		</a>
 		<input id="search-box" type="text" name="search-box"/>
-		<button type="button" class="sb">搜尋</button> 
+		<button type="submit" class="sb">搜尋</button> 
     </form>
     
     

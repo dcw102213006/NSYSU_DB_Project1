@@ -121,9 +121,11 @@ div.desc { /* Add desc...區塊的大小*/
 
 <div class="w3-container w3-blue-gray topbar">
   <form action="itemsearch.php" method="POST">
-    <img src="title.png" alt="" width="198" height="84" class="tp" />
+    <a href="index.php">
+      <img src="title.png" alt="title" width="124" height="56" class="tp" />
+    </a>
     <input id="search-box" type="text" name="search-box"/>
-    <input type="submit">
+    <button type="submit" class="sb">搜尋</button> 
     </form>
     
 <aside class="loginside" align="right">
@@ -136,7 +138,6 @@ div.desc { /* Add desc...區塊的大小*/
     <?php
   echo "共".count($oname)."項結果";
       ?><br>
-    我是李帥，很帥
     </div> 
 </div>
  

@@ -35,8 +35,10 @@ header("Content-Type:text/html; charset=utf-8");
         $odec=array();
         $opic=array();
         $mname=array();
+        $mid=array();
+        $otime=array();
 	    
-        
+          
         
         
         
@@ -58,6 +60,9 @@ header("Content-Type:text/html; charset=utf-8");
               array_push($odec,$row[2]);//取得物品敘述
               array_push($opic,$row[3]);//取得圖片路徑
               array_push($mname,$row[10]);//取得PO文者名字
+              $m=preg_replace('/[^\d]/','',$row[7]);
+              array_push($mid, $m);//取得PO文者ID
+              array_push($otime,$row[8]);//取得PO文時間戳記
            }
            
         }
@@ -69,6 +74,8 @@ header("Content-Type:text/html; charset=utf-8");
             "odec"=>$odec,
             "opic" =>$opic,
             "mname" =>$mname,
+            "mid"=>$mid,
+            "otime" =>$otime,
             
         );
         echo json_encode($json);

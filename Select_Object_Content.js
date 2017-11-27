@@ -21,7 +21,8 @@ $(function(){
                               
                                 <img src=`+data.opic[i]+`  id=`+i+` ;  width: 1000px; height: 741px; >
                              
-                              <div class="desc"><span class="glyphicon glyphicon-heart-empty" style="font-size:40px"></span></div>
+                              <div class="desc"><span class="glyphicon glyphicon-heart-empty" id=`+data.otime[i]+`
+                              style="font-size:40px ;cursor:pointer" onclick="likefunction(`+data.otime[i]+`,`+data.oid[i]+`,`+data.mid[i]+`);"></span></div>
                             </div>`;
                
                
@@ -29,7 +30,8 @@ $(function(){
                $('#wall').append(content);//將文章輸出至index.php
                //$('#img_info').append(`<div id="delete_btn" style="float:right;margin:10px" >...</div>`);
                
-            }     
+            } 
+            test();    
             this.data=data;
             //使用者點擊圖片,彈出modal
 
@@ -75,10 +77,24 @@ $(function(){
             } 	        
 
             }); 
-    
-
-	    
+      
+function test(){
+    $.ajax({
+             url: "checklike.php"+type,
+             type: "GET",
+            success: function(da){
+                dat=da;
+        
+                for(var i=0;i<dat.otimestamp.length;i++){
+                
+                    document.getElementById(dat.otimestamp[i]).style.color="red";
+             
+                }   
+            },
+            error: function(){
+            }   
+            
+    });
+}	    
 });
-function get_index_of_obj(data, index){//傳回資料項相對應的索引值
-     
-}
+

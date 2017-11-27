@@ -174,7 +174,34 @@ div.desc { /* Add desc...區塊的大小*/
   
   </div>
 </div>
+<script>
+function likefunction (otimestamp,oid,omid){
 
+    if(document.getElementById(otimestamp).style.color==""){
+      document.getElementById(otimestamp).style.color="red";
+    }
+    else if (document.getElementById(otimestamp).style.color="red"){
+        document.getElementById(otimestamp).style.color="";
+    }
+    $.ajax({
+        url: "like.php?oid="+oid+"&omid=C"+omid ,  //傳值到object_delete.php做SQL運算
+        type: "GET",
+        dataType:  "json",
+        contentType: false,
+        cache: false,
+        processData:false,
+        success: function(data){
+            
+        },
+        error: function(){
+        }           
+            
+    });     
+}
+
+
+   
+</script>
 
 <div id="myModal" class="modal">
   <span class="close">&times;</span>

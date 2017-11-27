@@ -26,8 +26,8 @@ div.gallery {
 	margin:1%;
 }
 
-div.gallery:hover {
-    border: 2px solid #FFF;
+div.gallery img:hover {
+    border: 10px solid #FFF;
 }
 
 div.gallery img {

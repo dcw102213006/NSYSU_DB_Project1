@@ -15,27 +15,29 @@
   <script src="Select_Object_Content.js"></script>
   <script src="delete.js"></script>
   <script src="update.js"></script>
+  <script src="fileupload.js"></script>
 
 
 
 
 <style>
+.space{
+	border-spacing: 100% 100%;
+	overflow: hidden;
+}
 div.gallery {
-    margin: 40px;
-    border: 1px solid #ccc;
+    border: 5px solid #FCFCFC;
     float: left;
-    width: 250px;
-    height:250px;
+	margin:1%;
 }
 
-div.gallery:hover {
-    border: 10px solid #FFF;
+div.gallery img:hover {
+    border: 5px solid #FFF;
 }
 
 div.gallery img {
-    width: 240px;
-    height: 240px;
-    margin-top:5px;
+    width: 235px;
+    height: 235px;
 }
 
 div.desc { /* Add desc...區塊的大小*/
@@ -44,45 +46,29 @@ div.desc { /* Add desc...區塊的大小*/
 	background-color: #FCFCFC
 }
 #wall{
-    width:60%;
+    width:100%;
+	height: auto;
+	left:2%;
+	padding:100px;
+	margin-top: 20px;
+	border-spacing: 100% 100%;
+	overflow: hidden;
 }
 * {
     box-sizing: border-box;
 }
-
+.modal-backdrop{
+    z-index:0;   
+}
+.modal{
+   background-color:rgba(218, 207, 207, 0.9);
+}
 .responsive {
-    padding: 0 6px;
+    padding: 0 4px;
     float: left;
     width: 30%;
 }
-.modal-backdrop{
-    background-color:white;
-    Z-index:0;
-}
-.modal{
-    background-color:rgba(199, 194, 194, 0.9);
-}
-.loader {
-  margin-left:150px;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  
-}
 
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 @media only screen and (max-width: 893px){
     .responsive {
         width: 49.99999%;
@@ -95,8 +81,12 @@ div.desc { /* Add desc...區塊的大小*/
         width: 100%;
     }
     .modal-content{
-        clear:left;
-        margin-right:100px;
+        clear:both;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);		
     }
 }
 
@@ -105,17 +95,14 @@ div.desc { /* Add desc...區塊的大小*/
     display: table;
     clear: both;
 }
+
 </style>
 </head>
 <body class="body">
 
-<div class="w3-container w3-blue-gray topbar">
-	<form action="">
-    <img src="title.png" alt="" width="198" height="84" class="tp" />
-  	<input id="search-box" type="text" name="search-box"/>
-    </form>
+<div class="w3-container w3-blue-gray topbar" align="left">
     
-<aside class="loginside" align="right">
+    <div class="right">
 <?php
 
   require 'Oracle_connect.php';
@@ -127,28 +114,61 @@ div.desc { /* Add desc...區塊的大小*/
   else{
        $uid=$_SESSION['uid'];
 	   echo $_SESSION['uname'].'您好!'.'<a href="logout.php">登出</a>' ;
-       $id=$_GET['id'];//網址參數的id
+       if(isset($_GET['id'])) $id=$_GET['id'];
+	   else $id=$uid;//網址參數的id
       
        
   }
 ?>
-</aside>
+	</div>
+    
+    <form action="itemsearch.php" method="POST">
+    <a href="index.php">
+      <img src="title.png" alt="title" width="124" height="56" class="tp" />
+    </a>
+    <input id="search-box" type="text" name="search-box"/>
+    <button type="submit" class="sb">搜尋</button> 
+    </form>
+
+
+	    <div class="container group" align="center">
+     <div class="btn-group btype" role="group" align="center">
+      <div class="btn-group" role="group">
+        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
+          <li><a href="#" onclick="select(1)">女生</a></li>
+          <li><a href="#" onclick="select(2)">男生</a></li>
+        </ul>
+      </div>
+      <div class="btn-group" role="group">
+        <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B2" data-toggle="dropdown" aria-expanded="false">鞋類<span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="btnDropdown1">
+          <li><a href="#" onclick="select(3)">女生</a></li>
+          <li><a href="#" onclick="select(4)">男生</a></li>
+        </ul>
+      </div>
+       <button type="button" class="btn btn-default B3"  onclick="select(5)">生活用品</button>
+      <button type="button" class="btn btn-default B4" onclick="select(6)">3C</button>
+      <button type="button" class="btn btn-default B5" onclick="select(7)">書本</button>
+      <button type="button" class="btn btn-default B6" onclick="select(8)">文具</button>
+    </div>
+   </div>
 </div>
 
 
-<div class="container" align="center">
-        <div class="container type" align="center">
-        <div class="container selfdesc">
-        <img src="head.png" alt="headsticker" id="head"/> <br>
-            <div class="container desc-text" align="center">
+	    <div class="container selfdesc" align="center">
+        <img src="head.png" alt="headsticker" id="headsticker" width="128" height="128"/>
+            <div class="container desc-text" align="left">
             <?php
             echo $_SESSION['uname'];
-            ?><br>
-            我是李帥，很醜
+            ?>
+            <br>
+            個交換物品<br>
+            個人簡介
             </div> 
-        </div>
-         
-          </div>
+		</div>
+			
+	
         <div id="wall" align="center">
               
         </div>
@@ -163,7 +183,8 @@ div.desc { /* Add desc...區塊的大小*/
   
   <div class="modal-content" id="text_area" style="">
     <img class="modal-content" id="img01" style="float:left"  >
-    <div id="img_info" style="background-color:white;width:1000px;height:558px"><?php if ($uid==$id) echo '<button id="edit_btn" type="button"  class="btn btn-default dropdown-toggle B1">編輯</button><div id="delete_btn" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false"  style="float:right;margin:10px" >...</div>' ;?> <div id="obj_cont"></div></div>
+    <div id="img_info" style="background-color:white; width:800px; height:512px"><?php if ($uid==$id) echo '<button id="edit_btn" type="button"  class="btn btn-default dropdown-toggle B1">編輯</button><div id="delete_btn" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false"  style="float:right;margin:10px" >...</div>' ;?> 
+	<div id="obj_cont" align="left" style="float: left; width:150px; height:500px; margin-left:50px; margin-top:20px"></div></div>
   <ul class="dropdown-menu" role="menu" aria-labelledby="delete_btn">
           <li><a href="#" onclick="select(1)">女生</a></li>
           <li><a href="#" onclick="select(2)">男生</a></li>
@@ -177,7 +198,60 @@ div.desc { /* Add desc...區塊的大小*/
 
 
 <div class="fixed w3-container post" align="center">
-  <a href="post.php?id=<?php echo $uid?>"><button class="button" >POST</button></a>
+    
+  <button  type="button" class="button btn-info btn-lg" data-toggle="modal" data-target="#myModal2">PO文</button>
+</div>
+
+
+
+  <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" style="display:none">Open Modal</button>
+  
+  <!-- PO文 Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">發布貼文</h4>
+        </div>
+        <div class="modal-body" id="delete_msq">
+                   
+                    <form id="uploadForm" action="upload.php" method="post">
+                    <label>上傳物品照片:</label><br/>
+                    <input name="fileToUpload" type="file" class="inputFile"  id="fileToUpload"  accept="image/*" style="position:relative
+                    align-content:center"/>
+
+                    </form>
+
+
+
+                    <div id="img_area">
+                    <img id="img" src="">
+                    <button onclick="document.getElementById('id01').style.display='block'" id="next_btn" type="button" class="btn btn-success" style="display:none">下一步</button>
+
+                    </div>
+                    
+
+                    <div id="myModal" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img01">
+                      <div id="caption"></div>
+                      
+                    </div>
+
+
+          
+                    </div>
+                    <div class="modal-footer">
+                      
+                      
+                      <button id="Po_cancel_btn" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </div>
+      
+    </div>
 </div>
 
 
@@ -275,13 +349,38 @@ div.desc { /* Add desc...區塊的大小*/
 
 </body>
 
-
 <script>
-
-   
+<script>
+function declare(){
+	 
+	 
+	$("#uploadForm").submit();//上傳圖片
+	 
+	
+	
+	
+	
+	
+	
+	
+     
+}
+$(document).ready(function(){
+   $( "#next_btn" ).click(function() {
+       $("#modal_fo").show();
+	   $("#mes").hide();
+   });
+});
 </script>
 
 
 
+
+<script>
+function select(type){
+    document.location.href="index.php?type="+type;
+}
+   
+</script>
 
 </html>

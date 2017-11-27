@@ -14,18 +14,18 @@ function edit_obj(edit_id,editor){
 function edit_request(){
     
   
-   
+     
      $.ajax({
         url: "update_obj.php",
         type: "POST",
         
-        data:{"obj_dec":$("#obj_dec").val() ,"obj_name":$("#obj_name").val() ,"oid":edit_id},
+        data:{"obj_dec":$("#obj_dec_edit").val() ,"obj_name":$("#obj_name_edit").val() ,"oid":edit_id},
        
         
         success: function(data){//after updating 
             //alert(data);
             
-            $('#obj_cont').html(editor+'<hr><span style="bold">物品名稱:</span>'+$("#obj_name").val()+'</br><br>內容:<br>'+$("#obj_dec").val() );
+            $('#obj_cont').html(editor+'<hr><span style="bold">物品名稱:</span>'+$("#obj_name_edit").val()+'</br><br>內容:<br>'+$("#obj_dec_edit").val() );
             $('#edit_suc').click();
             
             

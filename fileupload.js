@@ -78,7 +78,9 @@ $(document).ready(function (e){
             alert(data.upload_status);//輸出上傳情形
 			img_title=data.img_title;//取得上傳到站上的圖片的檔案名稱
 			
-            if(data.uploadOk)Po();//call 發文系統 //插入文章到資料庫
+            if(data.uploadOk){
+                Po();//call 發文系統 //插入文章到資料庫
+            }
 		},
         error: function(){} 	        
         
@@ -87,6 +89,8 @@ $(document).ready(function (e){
 	
 	function Po(){
 	//ajax Post戳Insert.php
+    var obj_name=$("#obj_name").val();
+    var obj_dec=$("#obj_dec").val();
 	$.ajax({
         url: "Insert.php",
         type: "POST",
@@ -94,6 +98,32 @@ $(document).ready(function (e){
         
         success: function(data){
 			alert(data);
+            var content=`<div class="gallery"  id=gallery`+data.oid+`>
+                              
+                                <img src=`+img_title+`  id=`+data.index+` ;  width: 1000px; height: 741px; >
+                             
+                              <div class="desc"><span class="glyphicon glyphicon-heart-empty" 
+                              style="font-size:40px ;cursor:pointer");"></span></div>
+                            </div>`;
+                            
+            $('#wall').append(content);//將文章輸出至index.php
+            $('.gallery img').click(function(){
+                
+                modal.style.display = "block";
+                $('#img01').attr("src",this.src);
+				
+				$('#img_info').css("height",$('img#img01.modal-content').prop("height"));//文章內容高度等於圖片呈現的高度
+				$('#obj_cont').html('<hr><span style="bold">物品名稱:</span>'+obj_name+'</br><br>內容:<br>'+obj_dec  );
+                var delete_id=data.oid;
+                
+                delete_obj(delete_id);
+                
+                var edit_id=data.oid;
+                
+                edit_obj(edit_id,"");
+                
+                //captionText.innerHTML = this.alt;
+            }); 
 			$("#obj_dec").val('');
 			$("#obj_name").val('');
             $("#fileToUpload").val('');

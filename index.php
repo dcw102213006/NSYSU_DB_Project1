@@ -91,6 +91,92 @@ div.desc { /* Add desc...區塊的大小*/
     clear: both;
 }
 
+
+<!--
+以下為螢幕縮小變成手機menu圖案的css 
+-->
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {<!--螢幕寬度1200px以下的css-->
+  .topnav button:not(:first-child) {display: none;}
+  .btn-group  button{display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    background-color: #eae4e4;
+  }
+  #mobile_icon{
+   color:black;
+  
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .topnav.responsive {position: relative;}
+  
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive button {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .group {
+    
+    width: auto;
+    float: right;
+    position: fixed;
+    top: 80px;
+    right: -15px;
+    
+   }
+   .btn-group, .btn-group-vertical{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+   }
+   #user_logout{
+       display:none;
+   }
+   #logout_a{
+       float:right;
+   }
+   
+  
+   
+}
 </style>
 </head>
 <body class="body">
@@ -107,7 +193,7 @@ div.desc { /* Add desc...區塊的大小*/
   		}
   	else{
        $uid=$_SESSION['uid'];
-	   echo $_SESSION['uname'].'您好!'.'<a href="logout.php">登出</a>' ;
+	    echo '<div id="user_logout">'.$_SESSION['uname'].'您好!</div>'.'<div id="logout_a"><a href="logout.php">登出</a></div>' ;
   		}
 	?>  
 	</div>
@@ -120,8 +206,8 @@ div.desc { /* Add desc...區塊的大小*/
 		<button type="submit" class="sb">搜尋</button> 
     </form>
     
-    
-    <div class="container group" align="center">
+<div class="topnav" id="myTopnav">
+	    <div class="container group" align="center">
      <div class="btn-group btype" role="group" align="center">
       <div class="btn-group" role="group">
         <button id="btnDropdown1" type="button" class="btn btn-default dropdown-toggle B1" data-toggle="dropdown" aria-expanded="false">服飾<span class="caret"></span></button>
@@ -141,12 +227,15 @@ div.desc { /* Add desc...區塊的大小*/
       <button type="button" class="btn btn-default B4" onclick="select(6)">3C</button>
       <button type="button" class="btn btn-default B5" onclick="select(7)">書本</button>
       <button type="button" class="btn btn-default B6" onclick="select(8)">文具</button>
+       <a id="mobile_icon" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
+   </div>
+   
    </div>
    
    	<div class="side">
 	<div class="w3-dropdown-hover profile">
-        <img class="w3-circle w3-image w3-xlarge" src="head.png" style="width=56" height="56">
+        <div id="profile_img"><img class="w3-circle w3-image w3-xlarge" src="head.png" style="width=56" height="56"></div>
         <div class="w3-dropdown-content w3-bar-block droplist">
         <img class="w3-bar-item w3-blue-gray s" style="height:5">
         <a href="profile.php?id=<?php echo $uid; ?>" class="w3-bar-item w3-button">個人檔案</a>
@@ -381,7 +470,22 @@ function select(type){
    
 </script>
 
-
+<script>
+function myFunction() {
+    //按手機menu icon執行以下動作:
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";//展開選單
+        $('#mobile_icon').css("right","50px");
+        $('.group').css("right","15px");
+        
+    } else {
+       
+        x.className = "topnav";//收起選單
+       $('.group').css("right","-15px");
+    }
+}
+</script>
 
 
 </html>

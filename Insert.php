@@ -18,7 +18,7 @@
 	   
 	  
         //sql:select 物品id
-        $sql ="select Count(*)+1 from Object where Mid=$uid ";
+        $sql ="select Max(oid)+1 from Object where Mid=$uid ";
         $stmt = OCIParse($db_link, $sql);
         if(!$stmt) {
           echo "<h1>ERROR – Could not parse SQL select statement.</h1>";

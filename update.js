@@ -7,24 +7,26 @@ $(document).ready(function (e){
     
     }));  
 });
-function edit_obj(edit_id){
+function edit_obj(edit_id,editor){
     this.edit_id=edit_id;
-    
+    this.editor=editor;
 }
 function edit_request(){
     
   
-    
+   
      $.ajax({
-        url: "update_obj.php",   //傳值到object_delete.php做SQL運算
+        url: "update_obj.php",
         type: "POST",
-        dataType:  "json",
-        contentType: false,
-        cache: false,
-        processData:false,
+        
         data:{"obj_dec":$("#obj_dec").val() ,"obj_name":$("#obj_name").val() ,"oid":edit_id},
-        success: function(data){
+       
+        
+        success: function(data){//after updating 
+            //alert(data);
             
+            $('#obj_cont').html(editor+'<hr><span style="bold">物品名稱:</span>'+$("#obj_name").val()+'</br><br>內容:<br>'+$("#obj_dec").val() );
+            $('#edit_suc').click();
             
             
            

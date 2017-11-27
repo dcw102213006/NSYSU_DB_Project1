@@ -2,8 +2,8 @@ $(function(){
     var type=location.search;//取得HTTP Get: ?type=
     
     var locHref = location.href;
-    
-    if(locHref=="http://localhost/Project/index.php")type="?type=1";//預設為1;
+
+    if(!type)type="?type=1";//預設為1,搜尋資料表object 欄位cid=1的所有物品文章;
     
      $.ajax({
         url: "Select.php"+type,
@@ -55,7 +55,7 @@ $(function(){
                 
                 var edit_id=data.oid[this.id];
                 
-                edit_obj(edit_id);
+                edit_obj(edit_id,data.mname[this.id]);
                 
                 //captionText.innerHTML = this.alt;
             });

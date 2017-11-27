@@ -261,7 +261,7 @@ div.desc { /* Add desc...區塊的大小*/
 		   <button onclick="edit_request()" style="float:right" type="button" class="btn btn-info"  id="img_submit">更改</button>
         </div>
         <div class="modal-footer">
-          <button id="delete_suc" type="button" class="btn btn-default" data-dismiss="modal" style="display:none">success</button>
+          <button id="edit_suc" type="button" class="btn btn-default" data-dismiss="modal" style="display:none">success</button>
           
         </div>
       </div>

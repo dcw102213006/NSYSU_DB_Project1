@@ -101,6 +101,7 @@ $(document).ready(function (e){
 		
 			$("#img_area").hide();
             $("#mes").show();
+            $("#Po_cancel_btn").click();
 		},
         error: function(){
 			

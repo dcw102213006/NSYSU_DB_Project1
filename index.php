@@ -13,7 +13,7 @@
   <script src="//f2e.cloudcdn.biz/cdn_lib/react@15.6.1/react.min.js"></script>
   <script src="//f2e.cloudcdn.biz/cdn_lib/react@15.6.1/react-dom.min.js"></script>
   <script src="Select_Object_Content.js"></script>
-
+  <script src="fileupload.js"></script>
 
 <style>
 .space{
@@ -51,7 +51,13 @@ div.desc { /* Add desc...區塊的大小*/
 * {
     box-sizing: border-box;
 }
-
+.modal-backdrop{
+    z-index:0;
+    
+}
+.modal{
+   background-color:rgba(218, 207, 207, 0.9);
+}
 .responsive {
     padding: 0 4px;
     float: left;
@@ -187,9 +193,158 @@ div.desc { /* Add desc...區塊的大小*/
 </div>
 
 <div class="fixed w3-container post" align="center">
-  <a href="post.php?id=<?php echo $uid?>"><button class="button" >POST</button></a>
+  
+  <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">PO文</button>
 </div>
+
+
+
+  <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" style="display:none">Open Modal</button>
+  
+  <!-- PO文 Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">發布貼文</h4>
+        </div>
+        <div class="modal-body" id="delete_msq">
+                   
+                    <form id="uploadForm" action="upload.php" method="post">
+                    <label>上傳物品照片:</label><br/>
+                    <input name="fileToUpload" type="file" class="inputFile"  id="fileToUpload"  accept="image/*" style="position:relative
+                    align-content:center"/>
+
+                    </form>
+
+
+
+                    <div id="img_area">
+                    <img id="img" src="">
+                    <button onclick="document.getElementById('id01').style.display='block'" id="next_btn" type="button" class="btn btn-success" style="display:none">下一步</button>
+
+                    </div>
+                    
+
+                    <div id="myModal" class="modal">
+                      <span class="close">&times;</span>
+                      <img class="modal-content" id="img01">
+                      <div id="caption"></div>
+                      
+                    </div>
+
+
+          
+                    </div>
+                    <div class="modal-footer">
+                      
+                      
+                      <button id="Po_cancel_btn" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </div>
+      
+    </div>
+  </div>
+
+
+ 
+
+<div class="w3-container">
+  
+
+  
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>發佈貼文</h2>
+      </header>
+      <div class="w3-container">
+	        <div id="modal_fo">
+	        物品名稱: <input type="text" size="10" id="obj_name"><br><br>
+          物品種類: <form action="insert.php" method='post'><select name="obj_category" id="obj_category">
+                      <option selected value="DEFAULT">選擇一個分類</option>
+                      <option value="1">服飾/女生</option>
+                      <option value="2">服飾/男生</option>
+                      <option value="3">鞋類/女生</option>
+                      <option value="4">鞋類/男生</option>
+                      <option value="5">生活用品</option>
+                      <option value="6">3C</option>
+                      <option value="7">書本</option>
+                      <option value="8">文具</option>
+                   </select>
+                   </form>
+                  
+                
+                   <div></div>
+          
+          <textarea rows="30" cols="90" placeholder="對這個物品寫點敘述吧" id="obj_dec" name="obj_dec"></textarea>
+                
+           
+		    <button onclick="declare()" style="float:right" type="button" class="btn btn-info"  id="img_submit">發佈</button>
+			</div>
+      </div>
+	  <div id="mes" style="display:none">
+			    <div class="alert alert-success" >
+                   <strong>Success!</strong> 發佈貼文成功!
+                </div>
+	  </div>
+      <footer class="w3-container w3-teal">
+        <p>Modal Footer</p>
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 </body>
+
+
+
+
+
+
+<script>
+function declare(){
+	 
+	 
+	$("#uploadForm").submit();//上傳圖片
+	 
+	
+	
+	
+	
+	
+	
+	
+     
+}
+
+$(document).ready(function(){
+
+   $( "#next_btn" ).click(function() {
+       $("#modal_fo").show();
+	   $("#mes").hide();
+   });
+
+});
+
+
+
+
+</script>
+
+
 
 
 <script>

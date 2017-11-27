@@ -101,7 +101,7 @@ $(document).ready(function (e){
 		
 			$("#img_area").hide();
             $("#mes").show();
-            $("#Po_cancel_btn").click();
+            $("#Po_cancel_btn").click();//將上傳系統的modal畫面關掉
 		},
         error: function(){
 			

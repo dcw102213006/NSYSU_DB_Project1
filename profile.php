@@ -163,6 +163,10 @@ div.desc { /* Add desc...區塊的大小*/
        clear:left;
    }
 }
+#E{
+	width: 40px;
+	hieght: 20px;
+}
 </style>
 </head>
 <body class="body">
@@ -236,10 +240,10 @@ div.desc { /* Add desc...區塊的大小*/
             $row=oci_fetch_row($stmt);
              if ($uid==$id){ 
             echo "<div id='p_name'>$row[1]</div>";  
-            echo '<button id="p_edit_btn" class="btn-info btn-lg" data-toggle="modal" data-target="#myModal6">編輯</button><br>';
+            echo '<button id="p_edit_btn" class="btn-info btn-lg" data-toggle="modal" data-target="#myModal6" id="E">編輯</button><br>';
 
             echo "<div id='p_mail'>Email:$row[2]</div>";
-            echo "<div id='p_profile'>Profile:$row[7]</div>";
+            echo "<div id='p_profile'>$row[7]</div>";
             }
             ?>
             <br>

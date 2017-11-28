@@ -4,7 +4,7 @@ $(document).ready(function (e){
         e.preventDefault();//阻止表單跳頁丟值
         
         $("#show_profile_modal").click();
-    
+       
     }));  
 });
 function edit_profile(edit_id,editor){
@@ -13,19 +13,18 @@ function edit_profile(edit_id,editor){
 }
 function p_edit_request(){
     
-  
-   
+     
      $.ajax({
         url: "update_profile.php",
         type: "POST",
         
-        data:{"username":$("#username").val() ,"email":$("#email").val(),"profile":$("#profile").val() ,"uid":edit_id},
+        data:{"username":$("#username").val() ,"email":$("#email").val(),"profile":$("#profile").val() },
        
         
         success: function(data){//after updating 
             //alert(data);
             
-            $('#desc-text').html(editor+'<hr><span style="bold">帳號名稱:</span>'+$("#username").val()+'<br><br>Email:'+$("#email").val()+'</br><br>個人簡介:<br>'+$("#profile").val() );
+            $('div #profile_text').html($("#username").val()+'<hr><span style="bold"></span><br>個人簡介:<br>'+$("#profile").val() );
             $('#p_edit_suc').click();
             
             

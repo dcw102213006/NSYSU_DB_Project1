@@ -20,7 +20,7 @@ function delete_quest(){
         dataType:  "json",
         
         success: function(data){
-            alert(data);
+            //alert(data);
             
             setTimeout(function(){ $("#delete_suc").click(); }, 2000);
             $("#close").click();

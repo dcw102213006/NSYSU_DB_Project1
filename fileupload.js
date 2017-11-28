@@ -98,7 +98,7 @@ $(document).ready(function (e){
         
         success: function(data){
 			
-            alert(data);
+            //alert(data);
             
             var content=`<div class="gallery"  id=gallery`+data+`>
                               
@@ -119,7 +119,7 @@ $(document).ready(function (e){
                 var delete_id=data;
                 
                 delete_obj(delete_id);
-                alert(data);
+                //alert(data);
                 var edit_id=data;
                 
                 edit_obj(edit_id,"");

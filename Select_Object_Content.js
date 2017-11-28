@@ -4,7 +4,7 @@ $(function(){
     var locHref = location.href;
 
     if(!type)type="?type=1";//預設為1,搜尋資料表object 欄位cid=1的所有物品文章;
-    
+    if(document.title=="Personal Page" &&  !type)type="";
      $.ajax({
         url: "Select.php"+type,
         type: "GET",

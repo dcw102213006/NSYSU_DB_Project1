@@ -17,17 +17,17 @@ header("Content-Type:text/html; charset=utf-8");
         {
             $type=$_GET['type'];//物品種類(cid)
             //sql_1:select 物品 文章
-            $sql ="select * from object o,MEMBER m where o.mid=m.mid and o.cid=$type";
+            $sql ="select * from object o,MEMBER m where o.mid=m.mid and o.cid=$type order by o.oTimestamp desc";
         }
         else if(isset($_GET['id'] )){
             $id="'".$_GET['id']."'";//PO文者
             //sql_2:select 其他使用者的 文章
-            $sql ="select * from object o,MEMBER m where o.mid=m.mid and m.mid=$id";
+            $sql ="select * from object o,MEMBER m where o.mid=m.mid and m.mid=$id order by o.oTimestamp desc";
         }
         else{
             $id="'".$_SESSION['uid']."'";//PO文者
             //sql_3:select 個人網頁的 文章
-            $sql ="select * from object o,MEMBER m where o.mid=m.mid and m.mid=$id";
+            $sql ="select * from object o,MEMBER m where o.mid=m.mid and m.mid=$id order by o.oTimestamp desc";
         }
         //宣告陣列
         $oid=array();

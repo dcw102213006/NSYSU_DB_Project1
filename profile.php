@@ -327,11 +327,11 @@ div.desc { /* Add desc...區塊的大小*/
         </div>
         <div class="modal-body" id="delete_msq">
           
-          物品名稱:<input type="text" id="obj_name">
+          物品名稱:<input type="text" id="obj_name_edit">
           <br>
           內容:
           <br>
-          <textarea rows="20" cols="40" placeholder="對這個物品寫點敘述吧" id="obj_dec" name="obj_dec"></textarea>
+          <textarea rows="20" cols="40" placeholder="對這個物品寫點敘述吧" id="obj_dec_edit" name="obj_dec"></textarea>
                 
            
 		   <button onclick="edit_request()" style="float:right" type="button" class="btn btn-info"  id="img_submit">更改</button>
@@ -385,7 +385,6 @@ div.desc { /* Add desc...區塊的大小*/
 </body>
 
 <script>
-<script>
 function declare(){
 	 
 	 
@@ -417,5 +416,32 @@ function select(type){
 }
    
 </script>
+<script>
+function likefunction (otimestamp,oid,omid){
 
+    if(document.getElementById(otimestamp).style.color==""){
+      document.getElementById(otimestamp).style.color="red";
+    }
+    else if (document.getElementById(otimestamp).style.color="red"){
+        document.getElementById(otimestamp).style.color="";
+    }
+    $.ajax({
+        url: "like.php?oid="+oid+"&omid=C"+omid ,  //傳值到object_delete.php做SQL運算
+        type: "GET",
+        dataType:  "json",
+        contentType: false,
+        cache: false,
+        processData:false,
+        success: function(data){
+            
+        },
+        error: function(){
+        }           
+            
+    });     
+}
+
+
+   
+</script>
 </html>

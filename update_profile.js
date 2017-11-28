@@ -3,7 +3,7 @@ $(document).ready(function (e){
      $("#p_edit_btn").on('click',(function(e){
         e.preventDefault();//阻止表單跳頁丟值
         
-        $("#show_edit_modal").click();
+        $("#show_profile_modal").click();
     
     }));  
 });

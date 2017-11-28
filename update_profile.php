@@ -5,7 +5,8 @@
 	  header('Location:login.php');
   	}
   	else{
-  		$uid="'".trim($_SESSION['uid'])."'";
+        $uid="'".trim($_SESSION['uid'])."'";
+         $uname=   $_SESSION['uname'];//user name
   	}
 ?>
 <?php
@@ -22,8 +23,8 @@
         exit;
     }
     else{
-	$_SESSION['uname']=$_POST['username'];
 	oci_execute($stmt);
-	echo json_encode(array('success'=>'修改成功','name'=>$_POST['username'],'email'=>$_POST['email'],'profile'=>$_POST['profile']));
+	echo  "Success";
+	));
 	}
 ?>

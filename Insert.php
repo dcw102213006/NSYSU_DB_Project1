@@ -34,7 +34,7 @@
               if($row[0]==null)$oid=1;
               else $oid=$row[0];
               $index=$row[1];
-              echo $oid;
+              //echo $oid;
            }
            else{
                echo 'select error!';
@@ -49,13 +49,9 @@
         $stid = oci_parse($db_link, $sql);
         //echo $sql;
         oci_execute($stid); // The row is committed and immediately visible to other users 
-        //回傳訊息給前端
-        $json = array(
-            "oid" => $oid,
-            "index" =>$index
-            
-        );
-        echo json_encode($json);
+        
+        
+        echo $oid;//輸出oid給前端
 
 	   
     }

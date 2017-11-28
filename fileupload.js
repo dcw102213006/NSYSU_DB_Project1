@@ -97,10 +97,12 @@ $(document).ready(function (e){
         data:{"obj_dec":$("#obj_dec").val() ,"obj_name":$("#obj_name").val() ,"img_title":img_title,"obj_category":$("#obj_category").val()},
         
         success: function(data){
-			alert(data);
-            var content=`<div class="gallery"  id=gallery`+data.oid+`>
+			
+            alert(data);
+            
+            var content=`<div class="gallery"  id=gallery`+data+`>
                               
-                                <img src=`+img_title+`  id=`+data.index+` ;  width: 1000px; height: 741px; >
+                                <img src=`+img_title+`  id=`+data+` ;  width: 1000px; height: 741px; >
                              
                               <div class="desc"><span class="glyphicon glyphicon-heart-empty" 
                               style="font-size:40px ;cursor:pointer");"></span></div>
@@ -114,11 +116,11 @@ $(document).ready(function (e){
 				
 				$('#img_info').css("height",$('img#img01.modal-content').prop("height"));//文章內容高度等於圖片呈現的高度
 				$('#obj_cont').html('<hr><span style="bold">物品名稱:</span>'+obj_name+'</br><br>內容:<br>'+obj_dec  );
-                var delete_id=data.oid;
+                var delete_id=data;
                 
                 delete_obj(delete_id);
-                
-                var edit_id=data.oid;
+                alert(data);
+                var edit_id=data;
                 
                 edit_obj(edit_id,"");
                 

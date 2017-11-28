@@ -4,7 +4,7 @@ $(function(){
         type: "POST",
        
         success: function(data){
-            data=JSON.parse(data);
+           
             	
             });
 
@@ -20,5 +20,3 @@ $(function(){
             
 });
     
-
-

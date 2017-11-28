@@ -239,7 +239,7 @@ div.desc { /* Add desc...區塊的大小*/
         <div class="w3-dropdown-content w3-bar-block droplist">
         <img class="w3-bar-item w3-blue-gray s" style="height:5">
         <a href="profile.php?id=<?php echo $uid; ?>" class="w3-bar-item w3-button">個人檔案</a>
-        <a href="#" class="w3-bar-item w3-button">我的願望清單</a>
+        <a href="top.php" class="w3-bar-item w3-button">排行榜</a>
         </div>
       </div>
       </div>

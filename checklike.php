@@ -4,9 +4,15 @@ require 'Oracle_connect.php';
 if(!isset($_SESSION['uname'])){//若使用者尚未登入
 	  echo "錯誤!尚未登入";
 }
-	$type="'".$_GET['type']."'";
+	
 	$liker="'".$_SESSION['uid']."'";
-	$sql="select * from object o ,LIKERECORD l where  o.cid=$type and l.oid=o.oid and l.mid=o.mid and L.lid=$liker";
+	if(isset($_GET['type'])){
+		$type="'".$_GET['type']."'";
+		$sql="select * from object o ,LIKERECORD l where  o.cid=$type and l.oid=o.oid and l.mid=o.mid and L.lid=$liker";
+	}
+	else{
+		$sql="select * from object o ,LIKERECORD l where  l.oid=o.oid and l.mid=o.mid and l.lid=$liker and l.mid=$liker";
+	}
 	$stmt = oci_parse($db_link, $sql);
 	oci_execute($stmt);
 	$otimestamp=array();

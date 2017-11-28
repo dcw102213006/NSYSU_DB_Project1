@@ -135,7 +135,12 @@ div.desc { /* Add desc...區塊的大小*/
 </head>
 <body class="body">
 
-<div class="w3-container w3-blue-gray topbar">
+<div class="w3-container w3-blue-gray topbar" align="left">
+  <div class="right">
+  <?php
+      echo '<div id="user_logout">'.$_SESSION['uname'].'您好!</div>'.'<div id="logout_a"><a href="logout.php">登出</a></div>' ;
+  ?> 
+  </div>
     <form action="itemsearch.php" method=POST>
 		<a href="index.php">
 			<img src="title.png" alt="title" width="124" height="56" class="tp" />
@@ -273,7 +278,12 @@ function likefunction (otimestamp,oid,omid){
 
    
 </script>
-
+<script>
+function select(type){
+    document.location.href="index.php?type="+type;
+}
+   
+</script>
 
 
 

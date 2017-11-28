@@ -229,9 +229,19 @@ div.desc { /* Add desc...區塊的大小*/
         <img src="head.png" alt="headsticker" id="headsticker" width="128" height="128"/>
             <div class="container desc-text" align="left">
             <?php
-            echo $_SESSION['uname'];
+            $x="'".trim($uid)."'";
+            $sql="SELECT * FROM MEMBER WHERE MID=$x";
+            $stmt=oci_parse($db_link, $sql);
+            oci_execute($stmt);
+            $row=oci_fetch_row($stmt);
+             if ($uid==$id){ 
+            echo "<div id='p_name'>$row[1]</div>";  
+            echo '<button id="p_edit_btn" class="btn-info btn-lg" data-toggle="modal" data-target="#myModal6">編輯</button><br>';
+
+            echo "<div id='p_mail'>Email:$row[2]</div>";
+            echo "<div id='p_profile'>Profile:$row[7]</div>";
+            }
             ?>
-            <?php if ($uid==$id) echo '<button id="p_edit_btn" class="btn-info btn-lg" data-toggle="modal" data-target="#myModal6">編輯</button>'?>
             <br>
             <br>
             <div id="profile_text"> </div>
@@ -546,7 +556,34 @@ function myFunction() {
     }
 }
 </script>
+<script>
+function likefunction (otimestamp,oid,omid){
 
+    if(document.getElementById(otimestamp).style.color==""){
+      document.getElementById(otimestamp).style.color="red";
+    }
+    else if (document.getElementById(otimestamp).style.color="red"){
+        document.getElementById(otimestamp).style.color="";
+    }
+    $.ajax({
+        url: "like.php?oid="+oid+"&omid=C"+omid ,  //傳值到object_delete.php做SQL運算
+        type: "GET",
+        dataType:  "json",
+        contentType: false,
+        cache: false,
+        processData:false,
+        success: function(data){
+            
+        },
+        error: function(){
+        }           
+            
+    });     
+}
+
+
+   
+</script>
 
 
 </html>

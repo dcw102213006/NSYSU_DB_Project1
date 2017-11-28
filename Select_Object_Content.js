@@ -31,7 +31,7 @@ $(function(){
                //$('#img_info').append(`<div id="delete_btn" style="float:right;margin:10px" >...</div>`);
                
             } 
-            test();    
+            test();
             this.data=data;
             //使用者點擊圖片,彈出modal
 
@@ -78,23 +78,25 @@ $(function(){
 
             }); 
       
+
 function test(){
-    $.ajax({
-             url: "checklike.php"+type,
-             type: "GET",
-            success: function(da){
-                dat=da;
-        
-                for(var i=0;i<dat.otimestamp.length;i++){
-                
-                    document.getElementById(dat.otimestamp[i]).style.color="red";
-             
-                }   
-            },
-            error: function(){
+        $.ajax({
+         url: "checklike.php"+type,
+         type: "GET",
+        success: function(da){
+            dat=da;
+            for(var i=0;i<dat.otimestamp.length;i++){
+                var x=dat.otimestamp[i];
+                document.getElementById(x).style.color="red";
+         
             }   
+        },
+        error: function(){
             
-    });
-}	    
+        }   
+                
+    
+        });    	    
+    }
 });
 

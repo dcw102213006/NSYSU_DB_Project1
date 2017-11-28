@@ -24,7 +24,9 @@ function p_edit_request(){
         success: function(data){//after updating 
             //alert(data);
             
-            $('div #profile_text').html($("#username").val()+'<hr><span style="bold"></span><br>個人簡介:<br>'+$("#profile").val() );
+            $('#p_name').html($("#username").val());
+            $('#p_mail').html('Email:'+$("#email").val());
+            $('#p_profile').html('Profile:'+$("#profile").val());
             $('#p_edit_suc').click();
             
             
